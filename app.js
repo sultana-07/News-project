@@ -1,8 +1,6 @@
 const apikey = "522ee3d2bde740d4a49b748778762e23";
 
-// https://newsapi.org/v2/top-headlines?country=in&pageSize=10&apikey
 
-// https://newsapi.org/v2/everything?q=tesla&pageSize=10&sortBy=publishedAt&apiKey
 
 const container = document.querySelector(".blog-con")
 const input = document.querySelector("#input")
@@ -38,8 +36,6 @@ btn.addEventListener("click",async() => {
             
         }
         
-    
-    
 })
 
 const fetchsearchnews = async(inputval) => {
@@ -52,7 +48,7 @@ const fetchsearchnews = async(inputval) => {
      const res = await fetch(apiurl)
      const data =  await res.json()
      heading.textContent = `${inputval.toUpperCase()} News`
-    //   input.value = ""
+    
     
     
      return data.articles;
@@ -64,43 +60,43 @@ const fetchsearchnews = async(inputval) => {
     }
 }
 
-// explorebtn.addEventListener("click", async() => {
-//     const inputval = input.value.trim();
-//    try {
-//     const articles = await fetexplore(inputval)
-//     displayblog(articles)
-//    } catch (error) {
-//       console.log("explore error",error);
+explorebtn.addEventListener("click", async() => {
+    const inputval = input.value.trim();
+   try {
+    const articles = await fetexplore(inputval)
+    displayblog(articles)
+   } catch (error) {
+      console.log("explore error",error);
       
-//    }
-// })
+   }
+})
 
-// const fetexplore = async(inputval) => {
-//     try {
-//         const apiurl =  `https://newsapi.org/v2/everything?q=${inputval}&pageSize=21&sortBy=publishedAt&apiKey=${apikey}`
+const fetexplore = async(inputval) => {
+    try {
+        const apiurl =  `https://newsapi.org/v2/everything?q=${inputval}&pageSize=21&sortBy=publishedAt&apiKey=${apikey}`
 
-//      const res = await fetch(apiurl)
-//      const data =  await res.json()
-//       return data.articles;
+     const res = await fetch(apiurl)
+     const data =  await res.json()
+      return data.articles;
       
-//     } catch (error) {
-//         console.log("error in fetching data",error);
+    } catch (error) {
+        console.log("error in fetching data",error);
         
-//     }
-// }
+    }
+}
 
 
 const displayblog = (articles) => {
 
     articles.forEach((article) => {
-        // container.innerHTML = ""
+       
         const blogCard = document.createElement("div")
         blogCard.classList.add("blog-card")
    
         const img = document.createElement("img")
-        // const imggive = article.urlToImage = ""? article.urlToImage : "https://www.ecreativeim.com/blog/wp-content/uploads/2011/05/image-not-found.jpg";
+      
         img.src = article.urlToImage
-        // console.log(img);
+   
         
         
    
@@ -129,11 +125,7 @@ const displayblog = (articles) => {
         console.log( container);
         
 
-      
-
-        
-
-    });
+       });
  
 }
 
